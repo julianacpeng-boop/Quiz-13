@@ -460,12 +460,12 @@ def build_typewriter_segment(frame_dir: Path, audio_path: Path, output_path: Pat
                             duration: float, frame_rate: int = 8) -> None:
     pattern = str(frame_dir / "%04d.jpg")
     run([
-        "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-stream_loop", "-1",
+        "ffmpeg", "-hide_banner", "-loglevel", "error", "-y",
         "-framerate", str(frame_rate), "-i", pattern, "-i", str(audio_path),
         "-t", f"{duration:.3f}", "-map", "0:v:0", "-map", "1:a:0",
-        "-vf", f"fps={FPS},format=yuv420p", "-r", str(FPS), "-c:v", "libx264",
+        "-vf", f"fps={FPS},tpad=stop_mode=clone:stop_duration={duration:.3f},format=yuv420p", "-r", str(FPS), "-c:v", "libx264",
         "-preset", "veryfast", "-crf", "20", "-c:a", "aac", "-b:a", "192k",
-        "-ar", "48000", "-ac", "2", "-shortest", str(output_path),
+        "-ar", "48000", "-ac", "2", "-af", f"apad=pad_dur={duration:.3f}", "-shortest", str(output_path),
     ])
 
 
@@ -560,7 +560,7 @@ def make_one_video(index: int, question: dict, send_drive: bool = False, batch: 
         frame_rate = 8
         # Reserve the final second as a still frame so the complete last word
         # remains visible instead of disappearing on the video's last frame.
-        typing_duration = max(0.5, answer_duration - 1.0)
+        typing_duration = max(1.0, len(question["explicacao"].strip()) / 15.0)
         frame_count = max(1, math.ceil(typing_duration * frame_rate))
         explanation = question["explicacao"].strip()
         answer_base = render_answer_frame(question, image_path, palette, " ")
@@ -572,7 +572,7 @@ def make_one_video(index: int, question: dict, send_drive: bool = False, batch: 
                 frame_path, quality=88, optimize=True
             )
         answer_segment = temp / "segmento_resposta.mp4"
-        build_typewriter_segment(answer_frames, answer_audio, answer_segment, answer_duration, frame_rate)
+        build_typewriter_segment(answer_frames, answer_audio, answer_segment, max(answer_duration, typing_duration), frame_rate)
         segments.append(answer_segment)
 
         concat_file = temp / "segmentos.txt"
