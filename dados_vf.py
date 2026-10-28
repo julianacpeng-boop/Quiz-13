@@ -1,145 +1,217 @@
-"""Juh Quiz 13 — 15 temas atuais (outubro de 2026).
-
-Uma afirmação Verdadeiro/Falso por tema. As legendas NÃO contêm
-CAPA_SEGUNDOS=2: gerar_vf.py já insere a diretiva no TXT automaticamente.
-As imagens realistas correspondentes devem ser colocadas em imagens_perguntas/
-com os nomes exatos indicados em cada item.
+"""Quiz-13: 15 afirmações; uma caricatura com fundo por vídeo.
+O gerador existente escreve CAPA_SEGUNDOS=2 no TXT automaticamente.
 """
 
 PERGUNTAS = [
     {
-        'tema': 'Copa do Mundo de 2026',
-        'pergunta': 'A Copa do Mundo de 2026 reuniu 48 seleções divididas em 12 grupos na primeira fase.',
-        'verdadeiro': True,
-        'explicacao': 'A edição de 2026 foi a primeira com 48 seleções. Elas foram distribuídas em 12 grupos de quatro equipes.',
-        'imagem': 'imagens_perguntas/copa_mundo_2026_estadio.jpg',
-        'legenda': 'Você acompanhou a Copa de 2026? ⚽ Teste sua memória sobre o novo formato do Mundial. Verdadeiro ou falso?',
-        'hashtags': ['#CopaDoMundo2026', '#Futebol', '#Curiosidades', '#JuhQuiz'],
+        "tema": "Halloween",
+        "pergunta": "O Halloween também é conhecido como Dia das Bruxas.",
+        "verdadeiro": True,
+        "explicacao": "No Brasil, Dia das Bruxas é o nome popular dado ao Halloween.",
+        "imagem": "imagens_perguntas/01_halloween.png",
+        "legenda": "Você conhece essa festa cheia de fantasias e mistérios? Verdadeiro ou falso?",
+        "hashtags": [
+            "#Halloween",
+            "#DiaDasBruxas",
+            "#Curiosidades",
+            "#JuhQuiz"
+        ]
     },
     {
-        'tema': 'Segredos do Brasileirão',
-        'pergunta': 'Na Série A do Brasileirão de 2026, o título será decidido em uma final entre os dois primeiros colocados.',
-        'verdadeiro': False,
-        'explicacao': 'A Série A é disputada por pontos corridos, em 38 rodadas. Não há final eliminatória entre os dois primeiros.',
-        'imagem': 'imagens_perguntas/brasileirao_estadio_torcida.jpg',
-        'legenda': 'Será que o Brasileirão tem uma grande final? 🏟️ Responda antes da explicação!',
-        'hashtags': ['#Brasileirao2026', '#FutebolBrasileiro', '#Esportes', '#JuhQuiz'],
+        "tema": "Desgramou — Felipe Araújo",
+        "pergunta": "A música “Desgramou” é interpretada por Felipe Araújo.",
+        "verdadeiro": True,
+        "explicacao": "Felipe Araújo é o intérprete de Desgramou, divulgada na campanha musical mostrada no Kwai.",
+        "imagem": "imagens_perguntas/02_desgramou.png",
+        "legenda": "Quem acompanha o sertanejo vai acertar? Dê seu palpite antes da resposta!",
+        "hashtags": [
+            "#Desgramou",
+            "#FelipeAraujo",
+            "#Sertanejo",
+            "#JuhQuiz"
+        ]
     },
     {
-        'tema': 'Fórmula 1 e velocidade',
-        'pergunta': 'Os carros da Fórmula 1 de 2026 passaram a ter elementos móveis nas asas dianteira e traseira.',
-        'verdadeiro': True,
-        'explicacao': 'As regras de 2026 introduziram aerodinâmica ativa, com ajustes nas asas dianteira e traseira para diferentes trechos da pista.',
-        'imagem': 'imagens_perguntas/formula_1_carro_pista.jpg',
-        'legenda': 'O que mudou nos carros de Fórmula 1 em 2026? 🏎️ Você sabe essa?',
-        'hashtags': ['#Formula1', '#F12026', '#Tecnologia', '#JuhQuiz'],
+        "tema": "Willow e a Floresta Encantada",
+        "pergunta": "Em “Willow e a Floresta Encantada”, a floresta está ameaçada pelo desmatamento.",
+        "verdadeiro": True,
+        "explicacao": "Na história apresentada na divulgação do filme, Willow precisa ajudar a proteger a floresta ameaçada pelo desmatamento.",
+        "imagem": "imagens_perguntas/03_willow.png",
+        "legenda": "Uma floresta, muita magia e um desafio! Você conhece a história de Willow?",
+        "hashtags": [
+            "#Willow",
+            "#FlorestaEncantada",
+            "#Cinema",
+            "#JuhQuiz"
+        ]
     },
     {
-        'tema': 'Gatos e cachorros virais',
-        'pergunta': 'Os gatos enxergam o mundo apenas em preto e branco, mesmo durante o dia.',
-        'verdadeiro': False,
-        'explicacao': 'Gatos percebem algumas cores, embora sua visão de cores seja menos intensa que a humana. O mundo deles não é só preto e branco.',
-        'imagem': 'imagens_perguntas/gato_olhando_janela.jpg',
-        'legenda': 'Seu gato vê as mesmas cores que você? 🐱 Escolha verdadeiro ou falso!',
-        'hashtags': ['#Gatos', '#Animais', '#MundoAnimal', '#JuhQuiz'],
+        "tema": "Votação até as 19h",
+        "pergunta": "A prorrogação da votação até as 19h autorizou a reabertura de urnas que já estavam encerradas.",
+        "verdadeiro": False,
+        "explicacao": "No segundo turno de 2026, a extensão valia apenas para os locais onde a votação ainda não havia sido encerrada às 17h.",
+        "imagem": "imagens_perguntas/04_eleicoes_19h.png",
+        "legenda": "Votação até as 19h: a decisão permitia reabrir urnas encerradas? Confira o esclarecimento do TSE.",
+        "hashtags": [
+            "#Eleicoes2026",
+            "#Votacao",
+            "#FatoOuFake",
+            "#JuhQuiz"
+        ]
     },
     {
-        'tema': 'Mininovelas que viralizam',
-        'pergunta': 'Mininovelas verticais usam com frequência o formato de tela 9:16 para serem assistidas no celular.',
-        'verdadeiro': True,
-        'explicacao': 'Essas produções são pensadas para a tela vertical do celular, com capítulos curtos e narrativa rápida.',
-        'imagem': 'imagens_perguntas/mininovela_gravacao_celular.jpg',
-        'legenda': 'Por que as mininovelas conquistaram as telas dos celulares? 📱 Acerte esse desafio!',
-        'hashtags': ['#Mininovelas', '#VideosCurtos', '#Entretenimento', '#JuhQuiz'],
+        "tema": "Corpo humano",
+        "pergunta": "O coração humano possui quatro cavidades.",
+        "verdadeiro": True,
+        "explicacao": "O coração humano tem dois átrios e dois ventrículos, totalizando quatro cavidades.",
+        "imagem": "imagens_perguntas/05_coracao.png",
+        "legenda": "Você conhece bem o órgão que bate sem parar? Verdadeiro ou falso?",
+        "hashtags": [
+            "#Coracao",
+            "#CorpoHumano",
+            "#Ciencia",
+            "#JuhQuiz"
+        ]
     },
     {
-        'tema': 'Reality shows',
-        'pergunta': 'Em um reality de confinamento, é necessário ter um cinegrafista dentro de cada quarto para gravar as cenas.',
-        'verdadeiro': False,
-        'explicacao': 'Reality shows podem usar câmeras fixas ou controladas à distância, sem um cinegrafista em cada cômodo.',
-        'imagem': 'imagens_perguntas/reality_casa_cameras.jpg',
-        'legenda': 'Você já imaginou como as cenas de um reality são gravadas? 📹 Verdadeiro ou falso?',
-        'hashtags': ['#RealityShow', '#BBB', '#Bastidores', '#JuhQuiz'],
+        "tema": "Animais surpreendentes",
+        "pergunta": "Os polvos possuem três corações.",
+        "verdadeiro": True,
+        "explicacao": "Dois corações bombeiam sangue para as brânquias e outro o envia para o restante do corpo.",
+        "imagem": "imagens_perguntas/06_polvo.png",
+        "legenda": "Esse morador dos oceanos guarda uma surpresa! Acerte antes da revelação.",
+        "hashtags": [
+            "#Polvo",
+            "#Animais",
+            "#Curiosidades",
+            "#JuhQuiz"
+        ]
     },
     {
-        'tema': 'Memes e gírias da internet',
-        'pergunta': 'Para ser considerado um meme de internet, o conteúdo precisa obrigatoriamente ser uma fotografia com frase escrita.',
-        'verdadeiro': False,
-        'explicacao': 'Memes também podem circular como vídeos, áudios, frases, animações e outros conteúdos compartilhados e transformados na internet.',
-        'imagem': 'imagens_perguntas/memes_smartphone_redes_sociais.jpg',
-        'legenda': 'O que realmente transforma algo em meme? 😂 Será que você sabe?',
-        'hashtags': ['#Memes', '#Internet', '#CulturaDigital', '#JuhQuiz'],
+        "tema": "Origem das comidas",
+        "pergunta": "O sushi é um prato tradicional da culinária chinesa.",
+        "verdadeiro": False,
+        "explicacao": "O sushi, na forma pela qual é conhecido atualmente, é um prato tradicional da culinária japonesa.",
+        "imagem": "imagens_perguntas/07_sushi.png",
+        "legenda": "Você sabe de qual culinária esse prato faz parte? Responda verdadeiro ou falso!",
+        "hashtags": [
+            "#Sushi",
+            "#Gastronomia",
+            "#Cultura",
+            "#JuhQuiz"
+        ]
     },
     {
-        'tema': 'Vídeos com inteligência artificial',
-        'pergunta': 'Toda pessoa que aparece em um vídeo criado por IA precisa ter sido filmada por uma câmera real.',
-        'verdadeiro': False,
-        'explicacao': 'A IA generativa consegue criar personagens e cenas sintéticas sem que uma pessoa real tenha sido filmada para aquele vídeo.',
-        'imagem': 'imagens_perguntas/ia_edicao_video_tela.jpg',
-        'legenda': 'Você identifica quando uma pessoa de um vídeo foi criada por IA? 🤖 Pense antes de responder!',
-        'hashtags': ['#InteligenciaArtificial', '#VideosIA', '#Tecnologia', '#JuhQuiz'],
+        "tema": "Língua portuguesa",
+        "pergunta": "“Mas” e “mais” podem ser usados com o mesmo significado.",
+        "verdadeiro": False,
+        "explicacao": "Mas normalmente indica oposição. Mais expressa quantidade ou intensidade; as duas palavras não são intercambiáveis.",
+        "imagem": "imagens_perguntas/08_portugues.png",
+        "legenda": "Uma letra muda tudo! Você domina essa pegadinha da língua portuguesa?",
+        "hashtags": [
+            "#Portugues",
+            "#Gramatica",
+            "#Aprendizado",
+            "#JuhQuiz"
+        ]
     },
     {
-        'tema': 'Músicas que viram fenômenos',
-        'pergunta': 'Uma música antiga pode voltar a fazer sucesso anos depois de seu lançamento por causa de vídeos nas redes sociais.',
-        'verdadeiro': True,
-        'explicacao': 'Músicas de décadas anteriores já voltaram às paradas depois de viralizar em vídeos curtos, como Dreams, do Fleetwood Mac.',
-        'imagem': 'imagens_perguntas/musica_fones_celular.jpg',
-        'legenda': 'Você já descobriu uma música antiga por causa de um vídeo viral? 🎵 Marque seu palpite!',
-        'hashtags': ['#MusicasVirais', '#Musica', '#Nostalgia', '#JuhQuiz'],
+        "tema": "Descontos e matemática",
+        "pergunta": "Um desconto de 50% seguido de outro de 50% torna o produto gratuito.",
+        "verdadeiro": False,
+        "explicacao": "O segundo desconto incide sobre o valor já reduzido. Um produto de 100 reais passa a custar 25 reais.",
+        "imagem": "imagens_perguntas/09_descontos.png",
+        "legenda": "Dois descontos de 50%: quanto sobra para pagar? Pense antes de responder!",
+        "hashtags": [
+            "#Matematica",
+            "#Descontos",
+            "#Desafio",
+            "#JuhQuiz"
+        ]
     },
     {
-        'tema': 'Halloween e suas origens',
-        'pergunta': 'O Halloween surgiu nos Estados Unidos sem qualquer influência de tradições mais antigas.',
-        'verdadeiro': False,
-        'explicacao': 'O Halloween reúne influências de tradições anteriores, entre elas celebrações celtas ligadas ao festival de Samhain.',
-        'imagem': 'imagens_perguntas/halloween_aboboras_fantasia.jpg',
-        'legenda': 'O Halloween nasceu onde muita gente imagina? 🎃 Descubra se é mito ou verdade!',
-        'hashtags': ['#Halloween', '#DiaDasBruxas', '#Historia', '#JuhQuiz'],
+        "tema": "Segredos do espaço",
+        "pergunta": "Vênus é o planeta mais quente do Sistema Solar.",
+        "verdadeiro": True,
+        "explicacao": "Sua atmosfera densa, rica em dióxido de carbono, retém muito calor por meio de um intenso efeito estufa.",
+        "imagem": "imagens_perguntas/10_venus.png",
+        "legenda": "Qual planeta ganha no calor? Teste seus conhecimentos sobre o Sistema Solar.",
+        "hashtags": [
+            "#Venus",
+            "#Espaco",
+            "#Astronomia",
+            "#JuhQuiz"
+        ]
     },
     {
-        'tema': 'Ilusões de ótica',
-        'pergunta': 'Duas linhas com o mesmo comprimento podem parecer diferentes por causa de uma ilusão de ótica.',
-        'verdadeiro': True,
-        'explicacao': 'Na ilusão de Müller-Lyer, as setas nas extremidades mudam a percepção do tamanho de linhas que medem o mesmo.',
-        'imagem': 'imagens_perguntas/ilusao_otica_arte_geometrica.jpg',
-        'legenda': 'Você confia totalmente no que seus olhos mostram? 👀 Responda verdadeiro ou falso!',
-        'hashtags': ['#IlusaoDeOtica', '#Cerebro', '#Curiosidades', '#JuhQuiz'],
+        "tema": "Invenções",
+        "pergunta": "O telefone foi inventado antes da internet.",
+        "verdadeiro": True,
+        "explicacao": "O telefone surgiu no século XIX. As redes que deram origem à internet apareceram no século XX.",
+        "imagem": "imagens_perguntas/11_invencoes.png",
+        "legenda": "Telefone ou internet: você conhece a ordem dessas invenções? Verdadeiro ou falso?",
+        "hashtags": [
+            "#Invencoes",
+            "#Tecnologia",
+            "#Historia",
+            "#JuhQuiz"
+        ]
     },
     {
-        'tema': 'Compras ao vivo na internet',
-        'pergunta': 'É possível comprar produtos enquanto se acompanha uma transmissão de vendas ao vivo pela internet.',
-        'verdadeiro': True,
-        'explicacao': 'No live commerce, vendedores mostram produtos em tempo real e o público pode fazer pedidos durante a transmissão.',
-        'imagem': 'imagens_perguntas/live_commerce_celular_produtos.jpg',
-        'legenda': 'As lives estão mudando a maneira de comprar? 🛍️ Você acertaria essa?',
-        'hashtags': ['#LiveCommerce', '#ComprasOnline', '#Kwai', '#JuhQuiz'],
+        "tema": "Notícias na internet",
+        "pergunta": "Uma notícia muito compartilhada na internet é sempre verdadeira.",
+        "verdadeiro": False,
+        "explicacao": "O número de compartilhamentos não comprova uma notícia. É preciso verificar fonte, data e evidências.",
+        "imagem": "imagens_perguntas/12_noticias.png",
+        "legenda": "Milhares de compartilhamentos significam que é verdade? Confira esse desafio.",
+        "hashtags": [
+            "#Internet",
+            "#Noticias",
+            "#FatoOuFake",
+            "#JuhQuiz"
+        ]
     },
     {
-        'tema': 'Séries e filmes',
-        'pergunta': 'O chroma key permite trocar, na edição, um fundo verde por uma paisagem ou cenário diferente.',
-        'verdadeiro': True,
-        'explicacao': 'O chroma key remove uma cor selecionada da gravação, permitindo colocar outra imagem ou vídeo no lugar.',
-        'imagem': 'imagens_perguntas/cinema_estudio_filmagem.jpg',
-        'legenda': 'Como o cinema cria cenários que parecem impossíveis? 🎬 Descubra no desafio!',
-        'hashtags': ['#Cinema', '#EfeitosEspeciais', '#Filmes', '#JuhQuiz'],
+        "tema": "Geografia do Brasil",
+        "pergunta": "O Brasil faz fronteira com todos os países da América do Sul.",
+        "verdadeiro": False,
+        "explicacao": "Chile e Equador são os dois países sul-americanos que não fazem fronteira com o Brasil.",
+        "imagem": "imagens_perguntas/13_brasil.png",
+        "legenda": "Você conhece os vizinhos do Brasil? Acerte essa de geografia!",
+        "hashtags": [
+            "#Brasil",
+            "#Geografia",
+            "#AmericaDoSul",
+            "#JuhQuiz"
+        ]
     },
     {
-        'tema': 'Profissões surpreendentes',
-        'pergunta': 'As caixas-pretas dos aviões registram somente imagens de câmeras instaladas na cabine.',
-        'verdadeiro': False,
-        'explicacao': 'Os gravadores registram dados do voo, como altitude e velocidade, e sons da cabine; não são apenas câmeras de vídeo.',
-        'imagem': 'imagens_perguntas/aviacao_cabine_piloto.jpg',
-        'legenda': 'O que as famosas caixas-pretas realmente registram? ✈️ Verdadeiro ou falso?',
-        'hashtags': ['#Aviacao', '#Curiosidades', '#Profissoes', '#JuhQuiz'],
+        "tema": "Símbolos",
+        "pergunta": "A pomba branca é um símbolo de paz.",
+        "verdadeiro": True,
+        "explicacao": "A pomba branca é amplamente utilizada como símbolo de paz em manifestações culturais e artísticas.",
+        "imagem": "imagens_perguntas/14_pomba.png",
+        "legenda": "Você reconhece o significado desse símbolo? Dê seu palpite!",
+        "hashtags": [
+            "#Paz",
+            "#Simbolos",
+            "#Curiosidades",
+            "#JuhQuiz"
+        ]
     },
     {
-        'tema': 'Eleições 2026: fato ou fake',
-        'pergunta': 'Nas eleições brasileiras de 2026, o aplicativo e-Título permite votar pela internet sem ir à seção eleitoral.',
-        'verdadeiro': False,
-        'explicacao': 'O e-Título oferece identificação e serviços eleitorais, mas não recebe votos. A votação é presencial na urna eletrônica.',
-        'imagem': 'imagens_perguntas/eleicoes_urna_eletronica_celular.jpg',
-        'legenda': 'Será que o e-Título serve para votar pelo celular? 🗳️ Não caia em informação falsa!',
-        'hashtags': ['#Eleicoes2026', '#ETitulo', '#FatoOuFake', '#JuhQuiz'],
-    },
+        "tema": "Procurando Nemo",
+        "pergunta": "No filme “Procurando Nemo”, Nemo é um peixe-palhaço.",
+        "verdadeiro": True,
+        "explicacao": "Nemo e seu pai, Marlin, são peixes-palhaço, conhecidos pelas cores alaranjadas e faixas brancas.",
+        "imagem": "imagens_perguntas/15_nemo.png",
+        "legenda": "Quem se lembra dessa aventura no fundo do mar? Verdadeiro ou falso?",
+        "hashtags": [
+            "#ProcurandoNemo",
+            "#Cinema",
+            "#Animacao",
+            "#JuhQuiz"
+        ]
+    }
 ]
+
