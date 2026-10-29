@@ -1,217 +1,122 @@
-"""Quiz-13: 15 afirmações; uma caricatura com fundo por vídeo.
-O gerador existente escreve CAPA_SEGUNDOS=2 no TXT automaticamente.
-"""
+"""Quiz-13: 15 novas afirmações de verdadeiro ou falso."""
 
-PERGUNTAS = [
-    {
-        "tema": "Halloween",
-        "pergunta": "O Halloween também é conhecido como Dia das Bruxas.",
-        "verdadeiro": True,
-        "explicacao": "No Brasil, Dia das Bruxas é o nome popular dado ao Halloween.",
-        "imagem": "imagens_perguntas/01_halloween.png",
-        "legenda": "Você conhece essa festa cheia de fantasias e mistérios? Verdadeiro ou falso?",
-        "hashtags": [
-            "#Halloween",
-            "#DiaDasBruxas",
-            "#Curiosidades",
-            "#JuhQuiz"
-        ]
-    },
-    {
-        "tema": "Desgramou — Felipe Araújo",
-        "pergunta": "A música “Desgramou” é interpretada por Felipe Araújo.",
-        "verdadeiro": True,
-        "explicacao": "Felipe Araújo é o intérprete de Desgramou, divulgada na campanha musical mostrada no Kwai.",
-        "imagem": "imagens_perguntas/02_desgramou.png",
-        "legenda": "Quem acompanha o sertanejo vai acertar? Dê seu palpite antes da resposta!",
-        "hashtags": [
-            "#Desgramou",
-            "#FelipeAraujo",
-            "#Sertanejo",
-            "#JuhQuiz"
-        ]
-    },
-    {
-        "tema": "Willow e a Floresta Encantada",
-        "pergunta": "Em “Willow e a Floresta Encantada”, a floresta está ameaçada pelo desmatamento.",
-        "verdadeiro": True,
-        "explicacao": "Na história apresentada na divulgação do filme, Willow precisa ajudar a proteger a floresta ameaçada pelo desmatamento.",
-        "imagem": "imagens_perguntas/03_willow.png",
-        "legenda": "Uma floresta, muita magia e um desafio! Você conhece a história de Willow?",
-        "hashtags": [
-            "#Willow",
-            "#FlorestaEncantada",
-            "#Cinema",
-            "#JuhQuiz"
-        ]
-    },
-    {
-        "tema": "Votação até as 19h",
-        "pergunta": "A prorrogação da votação até as 19h autorizou a reabertura de urnas que já estavam encerradas.",
-        "verdadeiro": False,
-        "explicacao": "No segundo turno de 2026, a extensão valia apenas para os locais onde a votação ainda não havia sido encerrada às 17h.",
-        "imagem": "imagens_perguntas/04_eleicoes_19h.png",
-        "legenda": "Votação até as 19h: a decisão permitia reabrir urnas encerradas? Confira o esclarecimento do TSE.",
-        "hashtags": [
-            "#Eleicoes2026",
-            "#Votacao",
-            "#FatoOuFake",
-            "#JuhQuiz"
-        ]
-    },
-    {
-        "tema": "Corpo humano",
-        "pergunta": "O coração humano possui quatro cavidades.",
-        "verdadeiro": True,
-        "explicacao": "O coração humano tem dois átrios e dois ventrículos, totalizando quatro cavidades.",
-        "imagem": "imagens_perguntas/05_coracao.png",
-        "legenda": "Você conhece bem o órgão que bate sem parar? Verdadeiro ou falso?",
-        "hashtags": [
-            "#Coracao",
-            "#CorpoHumano",
-            "#Ciencia",
-            "#JuhQuiz"
-        ]
-    },
-    {
-        "tema": "Animais surpreendentes",
-        "pergunta": "Os polvos possuem três corações.",
-        "verdadeiro": True,
-        "explicacao": "Dois corações bombeiam sangue para as brânquias e outro o envia para o restante do corpo.",
-        "imagem": "imagens_perguntas/06_polvo.png",
-        "legenda": "Esse morador dos oceanos guarda uma surpresa! Acerte antes da revelação.",
-        "hashtags": [
-            "#Polvo",
-            "#Animais",
-            "#Curiosidades",
-            "#JuhQuiz"
-        ]
-    },
-    {
-        "tema": "Origem das comidas",
-        "pergunta": "O sushi é um prato tradicional da culinária chinesa.",
-        "verdadeiro": False,
-        "explicacao": "O sushi, na forma pela qual é conhecido atualmente, é um prato tradicional da culinária japonesa.",
-        "imagem": "imagens_perguntas/07_sushi.png",
-        "legenda": "Você sabe de qual culinária esse prato faz parte? Responda verdadeiro ou falso!",
-        "hashtags": [
-            "#Sushi",
-            "#Gastronomia",
-            "#Cultura",
-            "#JuhQuiz"
-        ]
-    },
-    {
-        "tema": "Língua portuguesa",
-        "pergunta": "“Mas” e “mais” podem ser usados com o mesmo significado.",
-        "verdadeiro": False,
-        "explicacao": "Mas normalmente indica oposição. Mais expressa quantidade ou intensidade; as duas palavras não são intercambiáveis.",
-        "imagem": "imagens_perguntas/08_portugues.png",
-        "legenda": "Uma letra muda tudo! Você domina essa pegadinha da língua portuguesa?",
-        "hashtags": [
-            "#Portugues",
-            "#Gramatica",
-            "#Aprendizado",
-            "#JuhQuiz"
-        ]
-    },
-    {
-        "tema": "Descontos e matemática",
-        "pergunta": "Um desconto de 50% seguido de outro de 50% torna o produto gratuito.",
-        "verdadeiro": False,
-        "explicacao": "O segundo desconto incide sobre o valor já reduzido. Um produto de 100 reais passa a custar 25 reais.",
-        "imagem": "imagens_perguntas/09_descontos.png",
-        "legenda": "Dois descontos de 50%: quanto sobra para pagar? Pense antes de responder!",
-        "hashtags": [
-            "#Matematica",
-            "#Descontos",
-            "#Desafio",
-            "#JuhQuiz"
-        ]
-    },
-    {
-        "tema": "Segredos do espaço",
-        "pergunta": "Vênus é o planeta mais quente do Sistema Solar.",
-        "verdadeiro": True,
-        "explicacao": "Sua atmosfera densa, rica em dióxido de carbono, retém muito calor por meio de um intenso efeito estufa.",
-        "imagem": "imagens_perguntas/10_venus.png",
-        "legenda": "Qual planeta ganha no calor? Teste seus conhecimentos sobre o Sistema Solar.",
-        "hashtags": [
-            "#Venus",
-            "#Espaco",
-            "#Astronomia",
-            "#JuhQuiz"
-        ]
-    },
-    {
-        "tema": "Invenções",
-        "pergunta": "O telefone foi inventado antes da internet.",
-        "verdadeiro": True,
-        "explicacao": "O telefone surgiu no século XIX. As redes que deram origem à internet apareceram no século XX.",
-        "imagem": "imagens_perguntas/11_invencoes.png",
-        "legenda": "Telefone ou internet: você conhece a ordem dessas invenções? Verdadeiro ou falso?",
-        "hashtags": [
-            "#Invencoes",
-            "#Tecnologia",
-            "#Historia",
-            "#JuhQuiz"
-        ]
-    },
-    {
-        "tema": "Notícias na internet",
-        "pergunta": "Uma notícia muito compartilhada na internet é sempre verdadeira.",
-        "verdadeiro": False,
-        "explicacao": "O número de compartilhamentos não comprova uma notícia. É preciso verificar fonte, data e evidências.",
-        "imagem": "imagens_perguntas/12_noticias.png",
-        "legenda": "Milhares de compartilhamentos significam que é verdade? Confira esse desafio.",
-        "hashtags": [
-            "#Internet",
-            "#Noticias",
-            "#FatoOuFake",
-            "#JuhQuiz"
-        ]
-    },
-    {
-        "tema": "Geografia do Brasil",
-        "pergunta": "O Brasil faz fronteira com todos os países da América do Sul.",
-        "verdadeiro": False,
-        "explicacao": "Chile e Equador são os dois países sul-americanos que não fazem fronteira com o Brasil.",
-        "imagem": "imagens_perguntas/13_brasil.png",
-        "legenda": "Você conhece os vizinhos do Brasil? Acerte essa de geografia!",
-        "hashtags": [
-            "#Brasil",
-            "#Geografia",
-            "#AmericaDoSul",
-            "#JuhQuiz"
-        ]
-    },
-    {
-        "tema": "Símbolos",
-        "pergunta": "A pomba branca é um símbolo de paz.",
-        "verdadeiro": True,
-        "explicacao": "A pomba branca é amplamente utilizada como símbolo de paz em manifestações culturais e artísticas.",
-        "imagem": "imagens_perguntas/14_pomba.png",
-        "legenda": "Você reconhece o significado desse símbolo? Dê seu palpite!",
-        "hashtags": [
-            "#Paz",
-            "#Simbolos",
-            "#Curiosidades",
-            "#JuhQuiz"
-        ]
-    },
-    {
-        "tema": "Procurando Nemo",
-        "pergunta": "No filme “Procurando Nemo”, Nemo é um peixe-palhaço.",
-        "verdadeiro": True,
-        "explicacao": "Nemo e seu pai, Marlin, são peixes-palhaço, conhecidos pelas cores alaranjadas e faixas brancas.",
-        "imagem": "imagens_perguntas/15_nemo.png",
-        "legenda": "Quem se lembra dessa aventura no fundo do mar? Verdadeiro ou falso?",
-        "hashtags": [
-            "#ProcurandoNemo",
-            "#Cinema",
-            "#Animacao",
-            "#JuhQuiz"
-        ]
-    }
-]
-
+PERGUNTAS = [{'tema': 'Morcegos e ecolocalização',
+  'pergunta': 'Todos os morcegos são cegos.',
+  'verdadeiro': False,
+  'explicacao': 'Os morcegos enxergam. Muitas espécies também usam a ecolocalização para se orientar.',
+  'imagem': 'imagens_perguntas/01_morcegos.png',
+  'legenda': 'Você sabe como esses animais percebem o ambiente? Verdadeiro ou falso?',
+  'hashtags': ['#Morcegos', '#Animais', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Renovação da pele',
+  'pergunta': 'A pele humana se renova continuamente.',
+  'verdadeiro': True,
+  'explicacao': 'Novas células são produzidas nas camadas mais profundas da epiderme e substituem as células '
+                'superficiais.',
+  'imagem': 'imagens_perguntas/02_pele.png',
+  'legenda': 'Nossa pele guarda muitas curiosidades. Teste o que você sabe!',
+  'hashtags': ['#CorpoHumano', '#Ciencia', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Eclipses solares',
+  'pergunta': 'Um eclipse solar acontece quando a Terra fica entre o Sol e a Lua.',
+  'verdadeiro': False,
+  'explicacao': 'Um eclipse solar ocorre quando a Lua passa entre o Sol e a Terra, ocultando o Sol total ou '
+                'parcialmente para alguns observadores.',
+  'imagem': 'imagens_perguntas/03_eclipse.png',
+  'legenda': 'Sol, Terra e Lua: será que você conhece essa sequência?',
+  'hashtags': ['#Astronomia', '#Espaco', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Desertos gelados',
+  'pergunta': 'Um deserto pode existir em uma região coberta de gelo.',
+  'verdadeiro': True,
+  'explicacao': 'Desertos são regiões com precipitação muito baixa. Há desertos polares, como grandes áreas '
+                'da Antártida.',
+  'imagem': 'imagens_perguntas/04_desertos.png',
+  'legenda': 'Todo deserto é quente? Pense bem antes de responder!',
+  'hashtags': ['#Geografia', '#Natureza', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Origem dos Jogos Olímpicos',
+  'pergunta': 'Os Jogos Olímpicos da Antiguidade surgiram na Grécia.',
+  'verdadeiro': True,
+  'explicacao': 'Os jogos antigos eram realizados em Olímpia, na Grécia, e sua primeira edição registrada '
+                'data de 776 a.C.',
+  'imagem': 'imagens_perguntas/05_olimpiadas.png',
+  'legenda': 'Você conhece a origem dessa tradição esportiva?',
+  'hashtags': ['#Historia', '#Esportes', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Por que e porque',
+  'pergunta': 'Em uma resposta que apresenta uma causa, costuma-se usar “porque” junto.',
+  'verdadeiro': True,
+  'explicacao': 'Porque, escrito junto e sem acento, pode introduzir uma causa ou explicação, como em: '
+                'Fiquei em casa porque choveu.',
+  'imagem': 'imagens_perguntas/06_portugues.png',
+  'legenda': 'Junto ou separado? Essa dúvida aparece no dia a dia!',
+  'hashtags': ['#Portugues', '#Gramatica', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Números primos',
+  'pergunta': 'O número 1 é primo.',
+  'verdadeiro': False,
+  'explicacao': 'Um número primo tem exatamente dois divisores positivos distintos: 1 e ele mesmo. O número '
+                '1 possui apenas um.',
+  'imagem': 'imagens_perguntas/07_primos.png',
+  'legenda': 'Uma afirmação pequena pode esconder uma grande pegadinha!',
+  'hashtags': ['#Matematica', '#Desafio', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Funcionamento do GPS',
+  'pergunta': 'O GPS determina a posição usando apenas antenas de telefonia celular.',
+  'verdadeiro': False,
+  'explicacao': 'O GPS utiliza sinais transmitidos por satélites. A rede celular pode auxiliar alguns '
+                'aparelhos, mas não é a base do sistema GPS.',
+  'imagem': 'imagens_perguntas/08_gps.png',
+  'legenda': 'Como o aparelho descobre onde você está? Dê seu palpite!',
+  'hashtags': ['#Tecnologia', '#GPS', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Plantas carnívoras',
+  'pergunta': 'As plantas carnívoras também realizam fotossíntese.',
+  'verdadeiro': True,
+  'explicacao': 'Elas produzem açúcares por fotossíntese. A captura de pequenas presas ajuda a obter '
+                'nutrientes, especialmente em solos pobres.',
+  'imagem': 'imagens_perguntas/09_plantas.png',
+  'legenda': 'Essas plantas têm uma alimentação curiosa. Você acerta essa?',
+  'hashtags': ['#Plantas', '#Biologia', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Conservação do mel',
+  'pergunta': 'A cristalização do mel prova que ele está estragado.',
+  'verdadeiro': False,
+  'explicacao': 'A cristalização é um processo natural que pode ocorrer no mel e, sozinha, não indica que '
+                'ele esteja estragado.',
+  'imagem': 'imagens_perguntas/10_mel.png',
+  'legenda': 'O aspecto do mel mudou: isso significa que ele estragou?',
+  'hashtags': ['#Alimentacao', '#Curiosidades', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Instrumentos de cordas',
+  'pergunta': 'O piano é classificado como instrumento de sopro.',
+  'verdadeiro': False,
+  'explicacao': 'O piano possui cordas que são percutidas por martelos quando as teclas são acionadas. Não é '
+                'um instrumento de sopro.',
+  'imagem': 'imagens_perguntas/11_musica.png',
+  'legenda': 'Você sabe como os instrumentos produzem seus sons?',
+  'hashtags': ['#Musica', '#Instrumentos', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Efeitos no cinema',
+  'pergunta': 'Todo efeito especial de cinema é criado por computador.',
+  'verdadeiro': False,
+  'explicacao': 'Há efeitos práticos realizados durante as filmagens, como maquiagem, cenários e mecanismos, '
+                'além dos efeitos digitais.',
+  'imagem': 'imagens_perguntas/12_cinema.png',
+  'legenda': 'Será que tudo o que impressiona na tela vem do computador?',
+  'hashtags': ['#Cinema', '#Curiosidades', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Regras do voleibol',
+  'pergunta': 'No voleibol de quadra, cada equipe pode dar até três toques para devolver a bola, além do '
+              'toque de bloqueio.',
+  'verdadeiro': True,
+  'explicacao': 'O toque do bloqueio não conta entre os três toques da equipe. Após ele, a equipe ainda tem '
+                'direito a até três toques.',
+  'imagem': 'imagens_perguntas/13_volei.png',
+  'legenda': 'Você conhece o limite de toques no vôlei? Entre no desafio!',
+  'hashtags': ['#Volei', '#Esportes', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Ferrugem e oxidação',
+  'pergunta': 'A ferrugem é um processo de oxidação associado ao ferro.',
+  'verdadeiro': True,
+  'explicacao': 'A ferrugem se forma pela corrosão do ferro em contato com oxigênio e água, produzindo '
+                'compostos como óxidos de ferro hidratados.',
+  'imagem': 'imagens_perguntas/14_ferrugem.png',
+  'legenda': 'O que acontece quando um metal enferruja? Teste seus conhecimentos!',
+  'hashtags': ['#Quimica', '#Ciencia', '#VerdadeiroOuFalso', '#JuhQuiz']},
+ {'tema': 'Espelho embaçado',
+  'pergunta': 'O espelho do banheiro embaça porque o vapor de água se condensa na superfície.',
+  'verdadeiro': True,
+  'explicacao': 'Quando o vapor de água encontra o espelho mais frio, pode formar pequenas gotículas de água '
+                'líquida que deixam a superfície embaçada.',
+  'imagem': 'imagens_perguntas/15_espelho.png',
+  'legenda': 'O espelho embaçou depois do banho. Você sabe explicar?',
+  'hashtags': ['#Fisica', '#DiaADia', '#VerdadeiroOuFalso', '#JuhQuiz']}]
