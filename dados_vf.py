@@ -1,159 +1,213 @@
-"""Quiz-13: 15 afirmações de verdadeiro ou falso sobre temas atuais."""
-
+"""Quiz-13: 7 polêmicas atuais e 8 temas nostálgicos. Atualização: 31/10/2026."""
 PERGUNTAS = [
-    {
-        'tema': 'Futebol internacional',
-        'pergunta': 'No futebol, estar em posição de impedimento já é, por si só, uma infração.',
-        'verdadeiro': False,
-        'explicacao': 'A posição de impedimento, sozinha, não é infração. O jogador precisa participar ativamente da jogada para que a regra seja aplicada.',
-        'imagem': 'imagens_perguntas/01_futebol_internacional.png',
-        'legenda': 'Impedimento é só estar na frente da defesa? Responda antes da revelação!',
-        'hashtags': ['#Futebol', '#RegrasDoFutebol', '#VerdadeiroOuFalso', '#JuhQuiz'],
-    },
-    {
-        'tema': 'BTS e K-pop',
-        'pergunta': 'BTS é um grupo musical formado na Coreia do Sul.',
-        'verdadeiro': True,
-        'explicacao': 'BTS é um grupo sul-coreano de K-pop, formado pela Big Hit Entertainment e estreado em 2013.',
-        'imagem': 'imagens_perguntas/02_bts_kpop.png',
-        'legenda': 'Você conhece o fenômeno mundial do K-pop? Verdadeiro ou falso!',
-        'hashtags': ['#BTS', '#Kpop', '#VerdadeiroOuFalso', '#JuhQuiz'],
-    },
-    {
-        'tema': 'Segurança de criptomoedas',
-        'pergunta': 'Depois que uma transferência de criptomoeda é confirmada na rede, o banco pode cancelá-la como se fosse uma compra no cartão.',
-        'verdadeiro': False,
-        'explicacao': 'Em geral, transações confirmadas em blockchain não podem ser simplesmente canceladas por um banco. É importante conferir o endereço antes de enviar.',
-        'imagem': 'imagens_perguntas/03_seguranca_cripto.png',
-        'legenda': 'Uma transferência cripto pode ser desfeita pelo banco? Pense bem!',
-        'hashtags': ['#Criptomoedas', '#SegurançaDigital', '#VerdadeiroOuFalso', '#JuhQuiz'],
-    },
-    {
-        'tema': 'Energia elétrica e LEDs',
-        'pergunta': 'Lâmpadas LED costumam consumir menos eletricidade que lâmpadas incandescentes para produzir quantidade semelhante de luz.',
-        'verdadeiro': True,
-        'explicacao': 'LEDs são mais eficientes: transformam uma parcela maior da energia em luz e costumam consumir menos eletricidade que lâmpadas incandescentes equivalentes.',
-        'imagem': 'imagens_perguntas/04_energia_led.png',
-        'legenda': 'LED ajuda a economizar energia? Responda verdadeiro ou falso!',
-        'hashtags': ['#Energia', '#LED', '#VerdadeiroOuFalso', '#JuhQuiz'],
-    },
-    {
-        'tema': 'Halloween',
-        'pergunta': 'O Halloween é celebrado tradicionalmente em 31 de outubro.',
-        'verdadeiro': True,
-        'explicacao': 'A celebração do Halloween ocorre em 31 de outubro, véspera do Dia de Todos os Santos em várias tradições cristãs.',
-        'imagem': 'imagens_perguntas/05_halloween.png',
-        'legenda': 'Doces ou travessuras: em que data é celebrado o Halloween?',
-        'hashtags': ['#Halloween', '#Curiosidades', '#VerdadeiroOuFalso', '#JuhQuiz'],
-    },
-    {
-        'tema': 'Denzel Washington e cinema',
-        'pergunta': 'Denzel Washington ganhou o Oscar de melhor ator por sua atuação no filme Fences.',
-        'verdadeiro': False,
-        'explicacao': 'Denzel Washington foi indicado ao Oscar de melhor ator por Fences, mas não venceu nessa categoria por esse filme.',
-        'imagem': 'imagens_perguntas/06_denzel_cinema.png',
-        'legenda': 'Denzel venceu o Oscar por Fences? Responda antes da resposta aparecer!',
-        'hashtags': ['#Cinema', '#DenzelWashington', '#VerdadeiroOuFalso', '#JuhQuiz'],
-    },
-    {
-        'tema': 'Inteligência artificial',
-        'pergunta': 'Uma resposta de inteligência artificial pode parecer convincente e ainda conter informações incorretas.',
-        'verdadeiro': True,
-        'explicacao': 'Sistemas de IA podem gerar respostas incorretas ou inventadas com tom seguro. Informações importantes devem ser conferidas em fontes confiáveis.',
-        'imagem': 'imagens_perguntas/07_inteligencia_artificial.png',
-        'legenda': 'A IA pode errar mesmo falando com confiança? Verdadeiro ou falso!',
-        'hashtags': ['#InteligênciaArtificial', '#Tecnologia', '#VerdadeiroOuFalso', '#JuhQuiz'],
-    },
-    {
-        'tema': 'Imagens falsas e deepfakes',
-        'pergunta': 'Um vídeo realista e sem marca d’água é sempre prova de que a cena aconteceu de verdade.',
-        'verdadeiro': False,
-        'explicacao': 'A ausência de marca d’água não comprova autenticidade. Vídeos podem ser manipulados; é importante verificar a origem e comparar com fontes independentes.',
-        'imagem': 'imagens_perguntas/08_deepfakes.png',
-        'legenda': 'Um vídeo realista é sempre verdadeiro? Cuidado antes de compartilhar!',
-        'hashtags': ['#Deepfake', '#FakeNews', '#VerdadeiroOuFalso', '#JuhQuiz'],
-    },
-    {
-        'tema': 'Internet via satélite',
-        'pergunta': 'A internet via satélite pode atender locais afastados onde não há rede de fibra óptica disponível.',
-        'verdadeiro': True,
-        'explicacao': 'A conexão via satélite pode ampliar o acesso em regiões remotas sem fibra ou outras redes terrestres, embora dependa de equipamento e cobertura adequados.',
-        'imagem': 'imagens_perguntas/09_internet_satelite.png',
-        'legenda': 'Internet via satélite pode chegar a áreas remotas? Responda!',
-        'hashtags': ['#Internet', '#Satélite', '#VerdadeiroOuFalso', '#JuhQuiz'],
-    },
-    {
-        'tema': 'El Niño e clima',
-        'pergunta': 'O El Niño está associado ao aquecimento anormal das águas superficiais do Pacífico equatorial central e oriental.',
-        'verdadeiro': True,
-        'explicacao': 'El Niño é a fase quente do padrão climático ENSO e envolve o aquecimento anormal de águas superficiais no Pacífico equatorial central e oriental.',
-        'imagem': 'imagens_perguntas/10_el_nino.png',
-        'legenda': 'El Niño tem relação com o aquecimento do Pacífico? Verdadeiro ou falso!',
-        'hashtags': ['#ElNiño', '#Clima', '#VerdadeiroOuFalso', '#JuhQuiz'],
-    },
-    {
-        'tema': 'Saúde digital e telessaúde',
-        'pergunta': 'A telessaúde significa que todo atendimento presencial pode ser substituído por consultas remotas.',
-        'verdadeiro': False,
-        'explicacao': 'Telessaúde amplia as formas de cuidado e pode apoiar o atendimento, mas não substitui toda avaliação presencial. A modalidade depende da necessidade clínica.',
-        'imagem': 'imagens_perguntas/11_telessaude.png',
-        'legenda': 'A telessaúde substitui todos os atendimentos presenciais?',
-        'hashtags': ['#Telessaúde', '#SaúdeDigital', '#VerdadeiroOuFalso', '#JuhQuiz'],
-    },
-    {
-        'tema': 'Vírus sincicial respiratório',
-        'pergunta': 'O vírus sincicial respiratório pode causar infecções respiratórias, especialmente em bebês e pessoas idosas.',
-        'verdadeiro': True,
-        'explicacao': 'O VSR é uma causa comum de infecções respiratórias e pode provocar quadros graves, principalmente em bebês e pessoas idosas.',
-        'imagem': 'imagens_perguntas/12_vsr.png',
-        'legenda': 'O VSR pode afetar a respiração de bebês e idosos? Responda!',
-        'hashtags': ['#VSR', '#Saúde', '#VerdadeiroOuFalso', '#JuhQuiz'],
-    },
-    {
-        'tema': 'Mamografia e saúde da mama',
-        'pergunta': 'A mamografia é um exame de imagem usado para avaliar as mamas e auxiliar na detecção de alterações.',
-        'verdadeiro': True,
-        'explicacao': 'A mamografia usa raios X para examinar as mamas e pode identificar alterações que precisam de avaliação profissional.',
-        'imagem': 'imagens_perguntas/13_mamografia.png',
-        'legenda': 'Você sabe para que serve a mamografia? Verdadeiro ou falso!',
-        'hashtags': ['#SaúdeDaMulher', '#Mamografia', '#VerdadeiroOuFalso', '#JuhQuiz'],
-    },
-    {
-        'tema': 'Doação de órgãos',
-        'pergunta': 'No Brasil, a família precisa autorizar a doação de órgãos após a morte do potencial doador.',
-        'verdadeiro': True,
-        'explicacao': 'No Brasil, a doação após a morte depende da autorização familiar, por isso conversar sobre essa vontade com a família é importante.',
-        'imagem': 'imagens_perguntas/14_doacao_orgaos.png',
-        'legenda': 'No Brasil, a família participa da autorização para doar órgãos?',
-        'hashtags': ['#DoaçãoDeÓrgãos', '#Solidariedade', '#VerdadeiroOuFalso', '#JuhQuiz'],
-    },
-    {
-        'tema': 'Segurança no celular',
-        'pergunta': 'A verificação em duas etapas torna uma conta impossível de invadir.',
-        'verdadeiro': False,
-        'explicacao': 'A verificação em duas etapas acrescenta uma camada de proteção, mas não torna a conta invulnerável. Senhas fortes e cuidado com links continuam importantes.',
-        'imagem': 'imagens_perguntas/15_verificacao_duas_etapas.png',
-        'legenda': 'A verificação em duas etapas garante proteção absoluta?',
-        'hashtags': ['#SegurançaDigital', '#Celular', '#VerdadeiroOuFalso', '#JuhQuiz'],
-    },
+  {
+    "tema": "Neymar e Luana",
+    "pergunta": "A troca de provocações entre Neymar e Luana Piovani chegou a envolver comentários sobre a família.",
+    "verdadeiro": True,
+    "explicacao": "A cobertura de 30 de outubro relatou comentários de Neymar sobre a vida familiar de Luana, ampliando a discussão nas redes.",
+    "imagem": "imagens_perguntas/01_neymar_luana.png",
+    "legenda": "Você acompanhou essa troca de farpas?",
+    "hashtags": [
+      "#Neymar",
+      "#LuanaPiovani",
+      "#Atualidades",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Boca de 09",
+    "pergunta": "Ter grande audiência impede uma plataforma de banir uma transmissão.",
+    "verdadeiro": False,
+    "explicacao": "A audiência não impede a aplicação das regras. O TikTok confirmou o banimento de Boca de 09 por violações de suas diretrizes.",
+    "imagem": "imagens_perguntas/02_boca09.png",
+    "legenda": "Audiência alta protege uma conta?",
+    "hashtags": [
+      "#BocaDe09",
+      "#RedesSociais",
+      "#Atualidades",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Felca e Dori Oliveira",
+    "pergunta": "O vídeo citado na acusação contra Felca era antigo, embora tenha voltado a repercutir nesta semana.",
+    "verdadeiro": True,
+    "explicacao": "As reportagens explicaram que Adrielson resgatou uma transmissão antiga ao acusar Felca e Brino de bullying contra Dori Oliveira.",
+    "imagem": "imagens_perguntas/03_felca.png",
+    "legenda": "Um vídeo antigo pode gerar uma nova polêmica?",
+    "hashtags": [
+      "#Felca",
+      "#Respeito",
+      "#Atualidades",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Mônica em A Fazenda",
+    "pergunta": "Mônica Fonseca deixou A Fazenda 18 por votação do público em uma roça.",
+    "verdadeiro": False,
+    "explicacao": "A Record informou em 31 de outubro que Mônica foi expulsa após uma confusão com outro participante e quebra das regras do programa.",
+    "imagem": "imagens_perguntas/04_monica.png",
+    "legenda": "Você sabe como ela deixou o reality?",
+    "hashtags": [
+      "#AFazenda",
+      "#MonicaFonseca",
+      "#Atualidades",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Paola e Fogaça",
+    "pergunta": "O motivo de Paola Carosella e Henrique Fogaça deixarem de se seguir foi confirmado pelos dois.",
+    "verdadeiro": False,
+    "explicacao": "O afastamento no Instagram gerou especulações, mas a reportagem de 30 de outubro não trouxe confirmação dos dois sobre o motivo.",
+    "imagem": "imagens_perguntas/05_paola_fogaca.png",
+    "legenda": "Um unfollow explica toda a história?",
+    "hashtags": [
+      "#MasterChef",
+      "#PaolaCarosella",
+      "#Fogaca",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Mara Maravilha",
+    "pergunta": "Mara Maravilha afirmou publicamente que paga despesas do ex-marido Gabriel Torres.",
+    "verdadeiro": True,
+    "explicacao": "Em comentários nas redes, Mara disse assumir despesas de Gabriel. A afirmação é uma declaração dela, não uma auditoria das finanças do ex-casal.",
+    "imagem": "imagens_perguntas/06_mara.png",
+    "legenda": "O que Mara declarou nas redes?",
+    "hashtags": [
+      "#MaraMaravilha",
+      "#Famosos",
+      "#Atualidades",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Regina Duarte",
+    "pergunta": "Um vídeo compartilhado por uma celebridade, por si só, comprova uma irregularidade eleitoral.",
+    "verdadeiro": False,
+    "explicacao": "A repercussão de um vídeo não prova sua veracidade. A cobertura das publicações de Regina apontou alegações sem provas; é preciso verificar as evidências.",
+    "imagem": "imagens_perguntas/07_regina.png",
+    "legenda": "Fama e compartilhamentos bastam como prova?",
+    "hashtags": [
+      "#ReginaDuarte",
+      "#Checagem",
+      "#Atualidades",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Celulares de teclas",
+    "pergunta": "Antes dos aplicativos de mensagens, celulares já podiam trocar mensagens por SMS.",
+    "verdadeiro": True,
+    "explicacao": "O SMS permitia enviar mensagens de texto pela rede de telefonia, sem depender de aplicativos como o WhatsApp.",
+    "imagem": "imagens_perguntas/08_celular_teclas.png",
+    "legenda": "Quem lembra de economizar cada mensagem?",
+    "hashtags": [
+      "#CelularAntigo",
+      "#SMS",
+      "#Nostalgia",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Fotografias reveladas",
+    "pergunta": "Uma câmera analógica de filme permitia apagar uma foto e reutilizar imediatamente a mesma pose.",
+    "verdadeiro": False,
+    "explicacao": "Depois da exposição, aquela parte do filme não podia ser apagada como um arquivo digital. Era necessário revelar o filme para obter as fotografias.",
+    "imagem": "imagens_perguntas/09_fotografias.png",
+    "legenda": "Você esperava ansioso pelas fotos reveladas?",
+    "hashtags": [
+      "#Fotografia",
+      "#CameraAnalogica",
+      "#Nostalgia",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Disquetes",
+    "pergunta": "Os disquetes de 3,5 polegadas serviam para armazenar arquivos de computador.",
+    "verdadeiro": True,
+    "explicacao": "Eles eram mídias magnéticas removíveis usadas para guardar e transportar arquivos, com capacidade pequena em comparação às mídias atuais.",
+    "imagem": "imagens_perguntas/10_disquetes.png",
+    "legenda": "Seu trabalho escolar cabia em um disquete?",
+    "hashtags": [
+      "#Disquete",
+      "#ComputadorAntigo",
+      "#Nostalgia",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Papel de carta",
+    "pergunta": "O papel de carta era usado exclusivamente para trabalhos escolares.",
+    "verdadeiro": False,
+    "explicacao": "Além de escrever cartas, muitas pessoas colecionavam e trocavam papéis decorados, com estampas e ilustrações variadas.",
+    "imagem": "imagens_perguntas/11_papel_carta.png",
+    "legenda": "Você também trocava papel de carta?",
+    "hashtags": [
+      "#PapelDeCarta",
+      "#Colecoes",
+      "#Nostalgia",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Brincadeiras de rua",
+    "pergunta": "As regras da brincadeira de elástico podem variar entre grupos e regiões.",
+    "verdadeiro": True,
+    "explicacao": "Brincadeiras populares são transmitidas entre pessoas e gerações. A sequência dos saltos, as alturas e outras regras podem mudar conforme o grupo.",
+    "imagem": "imagens_perguntas/12_brincadeiras_rua.png",
+    "legenda": "Qual brincadeira marcou sua rua?",
+    "hashtags": [
+      "#BrincadeirasDeRua",
+      "#Infancia",
+      "#Nostalgia",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Cantigas de roda",
+    "pergunta": "Cantigas de roda podem apresentar versões diferentes conforme a região.",
+    "verdadeiro": True,
+    "explicacao": "A transmissão oral permite variações nas letras, nos gestos e nas maneiras de brincar entre comunidades e gerações.",
+    "imagem": "imagens_perguntas/13_cantigas_roda.png",
+    "legenda": "Você ainda lembra das cantigas?",
+    "hashtags": [
+      "#CantigasDeRoda",
+      "#Infancia",
+      "#Nostalgia",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Enciclopédias",
+    "pergunta": "Antes da internet se popularizar, enciclopédias impressas eram usadas em pesquisas escolares.",
+    "verdadeiro": True,
+    "explicacao": "Alunos consultavam volumes organizados por assuntos ou em ordem alfabética e complementavam a pesquisa com outros livros.",
+    "imagem": "imagens_perguntas/14_enciclopedias.png",
+    "legenda": "Quem já pesquisou na biblioteca da escola?",
+    "hashtags": [
+      "#Enciclopedia",
+      "#Biblioteca",
+      "#Nostalgia",
+      "#JuhQuiz"
+    ]
+  },
+  {
+    "tema": "Compras por catálogo",
+    "pergunta": "A venda por catálogo só surgiu depois que a internet se popularizou.",
+    "verdadeiro": False,
+    "explicacao": "Catálogos impressos já eram usados antes da popularização da internet. O cliente escolhia os produtos, fazia o pedido e aguardava a entrega.",
+    "imagem": "imagens_perguntas/15_catalogos.png",
+    "legenda": "Quem lembra de escolher e esperar chegar?",
+    "hashtags": [
+      "#Catalogo",
+      "#ComprasAntigas",
+      "#Nostalgia",
+      "#JuhQuiz"
+    ]
+  }
 ]
-
-# Referências gerais para validar as afirmações.
-FONTES = {
-    "01": "https://www.theifab.com/laws/latest/offside/",
-    "02": "https://ibighit.com/bts/eng/profile/",
-    "03": "https://www.consumerfinance.gov/consumer-tools/fraud/",
-    "04": "https://www.energy.gov/energysaver/led-lighting",
-    "05": "https://www.britannica.com/topic/Halloween",
-    "06": "https://www.oscars.org/oscars/ceremonies/2017",
-    "07": "https://www.nist.gov/artificial-intelligence",
-    "08": "https://www.cisa.gov/topics/election-security/foreign-influence-operations-and-disinformation",
-    "09": "https://www.fcc.gov/consumers/guides/satellite-internet",
-    "10": "https://oceanservice.noaa.gov/facts/ninonina.html",
-    "11": "https://www.gov.br/saude/pt-br/assuntos/saude-digital/telessaude",
-    "12": "https://www.cdc.gov/rsv/about/index.html",
-    "13": "https://www.gov.br/inca/pt-br/assuntos/cancer/tipos/mama",
-    "14": "https://www.gov.br/saude/pt-br/composicao/saes/snt/doacao-de-orgaos",
-    "15": "https://www.cisa.gov/secure-our-world/use-strong-passwords",
-}
-
